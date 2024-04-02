@@ -1,0 +1,49 @@
+import 'dart:io';
+
+// Interface definition
+abstract class Animal {
+  void makeSound();
+}
+
+// Base class
+class Dog implements Animal {
+  @override
+  void makeSound() {
+    print('Woof! Woof!');
+  }
+
+  void fetch() {
+    print('Fetching the ball');
+  }
+}
+
+// Subclass
+class Cat extends Animal {
+  @override
+  void makeSound() {
+    print('Meow! Meow!');
+  }
+
+  void scratch() {
+    print('Scratching the furniture');
+  }
+}
+
+void main() {
+  // Create an instance of Dog
+  var myDog = Dog();
+  myDog.makeSound(); // Output: Woof! Woof!
+  myDog.fetch();     // Output: Fetching the ball
+
+  // Create an instance of Cat
+  var myCat = Cat();
+  myCat.makeSound(); // Output: Meow! Meow!
+  myCat.scratch();   // Output: Scratching the furniture
+
+  // Initialize an instance with data from a file
+  var file = File('data.txt');
+  var lines = file.readAsLinesSync();
+  for (var line in lines) {
+    print(line);
+  }
+}
